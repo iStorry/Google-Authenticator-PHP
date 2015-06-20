@@ -210,3 +210,12 @@ $img = $auth->getURL('Test',$secret);
         </form>
     </body>
 </html>
+<?php
+  if(isset($_POST['opt'])){
+      if ($auth->checkOTP($_POST['secret'],$_POST['opt'])) {
+        print('<script> alert("Code Valid !"); </script>');
+  }else{
+        print('<script> alert("Code Invalid !"); </script>');
+  }
+}
+?>
